@@ -9,15 +9,17 @@ const assertEqual = function(actual, expected) {
 
 const eqArrays = function(arr1, arr2) {
   var result = true;
-  
-  for (var i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) {
-      result = false;
+  if (arr1.length === arr2.length) {
+    for (var i = 0; i < arr1.length; i++) {
+      if (arr1[i] !== arr2[i]) {
+        result = false;
+      }
     }
+  } else {
+    result = false;
   }
   return result;
 }
-
 
 // CODE
 const eqObjects = function(object1, object2) {
@@ -26,23 +28,20 @@ const eqObjects = function(object1, object2) {
   let arr2 = Object.keys(object2);
 
   if (arr1.length === arr2.length) {
-    for (const elements of arr1) {
-      if (Array.isArray(object1[elements])) {
-        result = eqArrays(object1[elements], object2[elements]);
-        console.log("result of arrays:", result);
+
+    for (const element of arr1) {
+      
+      if (Array.isArray(object1[element]) && Array.isArray(object2[element])) {
+        result = eqArrays(object1[element], object2[element]);
       }
-
-
       else{ 
-        if (object1[elements] !== object2[elements]) {
+        if (object1[element] !== object2[element]) {
           result = false;
         }
         else {
           result = true;
         }
       }
-
-
     }  
 
   }
@@ -55,12 +54,12 @@ const eqObjects = function(object1, object2) {
 
 
 // TEST
-// const ab = { a: "1", b: "2" };
-// const ba = { b: "2", a: "1" };
-// console.log(eqObjects(ab, ba)); // => true
+const ab = { a: "1", b: "2" };
+const ba = { b: "2", a: "1" };
+console.log(eqObjects(ab, ba)); // => true
 
-// const abc = { a: "1", b: "2", c: "3" };
-// console.log(eqObjects(ab, abc)); // => false
+const abc = { a: "1", b: "2", c: "3" };
+console.log(eqObjects(ab, abc)); // => false
 
 const cd = { c: "1", d: ["2", 3] };
 const dc = { d: ["2", 3], c: "1" };
