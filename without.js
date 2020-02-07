@@ -19,24 +19,19 @@ const assertArraysEqual = function (arr1, arr2) {
   }
 }
 
-// SOLUTIONS
+// SOLUTION I
 // const without = (source, itemsToRemove) => {
 //   return source.filter(element => !itemsToRemove.includes(element))
 // };
 
-// DIFFERENT WAY
-// const without = (source, itemsToRemove) => {
-//   let result = [];
+// SOLUTION II
+// const without = function(source, itemsToRemove) {
+//   var newArray = [];
 //   for (let i of source) {
-//     for (let j of itemsToRemove) {
-//       if (j !== i) {
-//         result.push(i);
-//       }
-//     }
+//     if (!itemsToRemove.includes(i)) newArray.push(i); //if one-line -> no brackets
 //   }
-//   return result;
+//   return newArray;
 // }
-
 
 // CODE
 const without = function(source, itemsToRemove) {
@@ -51,6 +46,7 @@ const without = function(source, itemsToRemove) {
   }
   return newArray;
 }
+
 
 // TEST
 console.log(without([1, 2, 3, 4, 5], [2, 5])); // [1, 3, 4]
