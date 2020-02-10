@@ -1,5 +1,5 @@
 {
-  "name": "lotide",
+  "name": "@maridoh13/lotide",
   "version": "1.0.0",
   "main": "assertArraysEqual.js",
   "directories": {
@@ -17,11 +17,11 @@
     "type": "git",
     "url": "git+https://github.com/maridoh13/lotide.git"
   },
-  "author": "",
+  "author": { "name": "Mariana Dominguez", "email": "maridoh@gmail.com" },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/maridoh13/lotide/issues"
   },
   "homepage": "https://github.com/maridoh13/lotide#readme",
-  "description": ""
+  "description": "Mariana's project from Lighthouse Labs - Lotide"
 }
