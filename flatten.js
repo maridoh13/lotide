@@ -1,7 +1,7 @@
 const eqArrays = function(arr1, arr2) {
-  var result = true;
+  let result = true;
   
-  for (var i = 0; i < arr1.length; i++) {
+  for (let i = 0; i < arr1.length; i++) {
     if (arr1[i] !== arr2[i]) {
       result = false;
     }
@@ -19,19 +19,18 @@ const assertArraysEqual = function (arr1, arr2) {
   }
 }
 
-
-
 const flatten = function(array) {
-  let newArray = []
+  let newArray = [];
   for (let i of array) {
-    console.log(i);
-    console.log(Array.isArray(i));
-    newArray.push(i);
-
+    if (Array.isArray(i)) {
+      i.forEach(element => newArray.push(element));
+    } 
+    else newArray.push(i);
   }
-  console.log(newArray);
   return newArray;
-}
+};
 
 
-flatten([1, 2, [3, 4], 5, [6]]) // => [1, 2, 3, 4, 5, 6]
+console.log(flatten([1, 2, [3, 4], 5, [6]]));
+
+assertArraysEqual(flatten([1, 2, [3, 4], 5, [6]]), [1, 2, 3, 4, 5, 6]);
