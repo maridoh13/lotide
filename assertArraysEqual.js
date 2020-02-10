@@ -9,7 +9,4 @@ const assertArraysEqual = function (arr1, arr2) {
   }
 };
 
-// assertArraysEqual([1, 2], [1, "2"]);
-// assertArraysEqual([1, 2], [1, 2]);
-
 module.exports = assertArraysEqual;
